@@ -40,6 +40,18 @@ Bem-vindo ao Guia dos Testes Automatizados! Este repositório é o ponto de part
 
 - [Rest Assured](https://rest-assured.io/)
 
+### 4. Selenium Webdriver:
+
+- [Configuração](./Selenium%20Webdriver/Configuração.md)
+- [Localizando Elementos](./Selenium%20Webdriver/Localizando%20Elementos.md)
+- [Interação com Elementos](./Selenium%20Webdriver/Interação%20com%20Elementos.md)
+- [Esperas](./Selenium%20Webdriver/Esperas.md)
+- [Janelas e Frames](./Selenium%20Webdriver/Janelas%20e%20Frames.md)
+
+#### Referências:
+
+- [Selenium Webdriver Documentation](https://www.selenium.dev/documentation/webdriver/getting_started/)
+
 ## 🤝 Contribua!
 
 Este guia está em constante crescimento, e sua contribuição é mais do que bem-vinda! Se você tem dicas, exemplos adicionais ou quer corrigir algo, sinta-se à vontade para abrir uma issue ou enviar um pull request. Vamos tornar este guia ainda mais incrível!
