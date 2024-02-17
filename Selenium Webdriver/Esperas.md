@@ -28,7 +28,7 @@ WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By
 Espera até que o elemento esteja presente na página.
 
 ```java
-WebDriverWait wait = new WebDriverWait(driver, 10);
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10L));
 WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("elementId")));
 ```
 
@@ -37,7 +37,7 @@ WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.i
 Espera até que o elemento esteja visível na página.
 
 ```java
-WebDriverWait wait = new WebDriverWait(driver, 10);
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10L));
 WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("elementId")));
 ```
 
@@ -46,7 +46,7 @@ WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By
 Espera até que o elemento seja clicável.
 
 ```java
-WebDriverWait wait = new WebDriverWait(driver, 10);
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10L));
 WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("elementId")));
 ```
 
@@ -55,7 +55,7 @@ WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("e
 Espera até que o texto do elemento seja igual ao texto esperado.
 
 ```java
-WebDriverWait wait = new WebDriverWait(driver, 10);
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10L));
 boolean result = wait.until(ExpectedConditions.textToBePresentInElementLocated(By.id("elementId"), "Expected Text"));
 ```
 
@@ -64,6 +64,6 @@ boolean result = wait.until(ExpectedConditions.textToBePresentInElementLocated(B
 Espera até que o título da página seja igual ao título esperado.
 
 ```java
-WebDriverWait wait = new WebDriverWait(driver, 10);
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10L));
 boolean result = wait.until(ExpectedConditions.titleIs("Expected Title"));
 ```
