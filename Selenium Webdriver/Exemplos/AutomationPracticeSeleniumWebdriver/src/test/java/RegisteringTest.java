@@ -11,7 +11,7 @@ import pages.RegisterPage;
 
 import java.time.Duration;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class AuthenticationTest {
+public class RegisteringTest {
 
     private static final WebDriver driver = new ChromeDriver();
     private final AutheticationPage autheticationPage = new AutheticationPage(driver);
@@ -69,5 +69,5 @@ public class AuthenticationTest {
         WebElement welcome = driver.findElement(By.className("info-account"));
         Assertions.assertTrue(welcome.isDisplayed());
     }
-    
+
 }
