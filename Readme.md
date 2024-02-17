@@ -45,6 +45,7 @@ Bem-vindo ao Guia dos Testes Automatizados! Este repositório é o ponto de part
 - [Configuração](./Selenium%20Webdriver/Configuração.md)
 - [Localizando Elementos](./Selenium%20Webdriver/Localizando%20Elementos.md)
 - [Interação com Elementos](./Selenium%20Webdriver/Interação%20com%20Elementos.md)
+- [Actions](./Selenium%20Webdriver/Actions.md)
 - [Esperas](./Selenium%20Webdriver/Esperas.md)
 - [Janelas e Frames](./Selenium%20Webdriver/Janelas%20e%20Frames.md)
 - [Alertas](./Selenium%20Webdriver/Alertas.md)
