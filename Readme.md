@@ -44,6 +44,7 @@ Bem-vindo ao Guia dos Testes Automatizados! Este repositório é o ponto de part
 
 - [Configuração](./Selenium%20Webdriver/Configuração.md)
 - [Localizando Elementos](./Selenium%20Webdriver/Localizando%20Elementos.md)
+- [XPath](./Selenium%20Webdriver/XPath.md)
 - [Interação com Elementos](./Selenium%20Webdriver/Interação%20com%20Elementos.md)
 - [Select](./Selenium%20Webdriver/Select.md)
 - [Actions](./Selenium%20Webdriver/Actions.md)
