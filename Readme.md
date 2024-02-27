@@ -28,8 +28,8 @@ Bem-vindo ao Guia dos Testes Automatizados! Este repositório é o ponto de part
 
 ### 3. Rest Assured:
 
-- [Configuração](./Rest%20Assured/Configuração.md)
-- [Requisições HTTP](./Rest%20Assured/Requisições%20HTTP.md)
+- [Configuração](./RestAssured/Configuração.md)
+- [Requisições HTTP](./RestAssured/Requisições%20HTTP.md)
 - [Validação das Respostas](./RestAssured/Validação%20das%20Respostas.md)
 - [Manipulando JSON](./RestAssured/Manipulando%20JSON.md)
 - [Manipulando XML](./RestAssured/Manipulando%20XML.md)
@@ -55,6 +55,9 @@ Bem-vindo ao Guia dos Testes Automatizados! Este repositório é o ponto de part
 - [Screenshots](./Selenium%20Webdriver/Screenshots.md)
 - [Relatórios](./Selenium%20Webdriver/Relatórios.md)
 - [Padrão de Projeto POM](./Selenium%20Webdriver/POM.md)
+- [Padrão de Projeto Page Factory](./Selenium%20Webdriver/Page%20Factory.md)
+- [Padrão Base Page](./Selenium%20Webdriver/BasePage.md)
+- [Padrão FluentPages](./Selenium%20Webdriver/FluentPages.md)
 
 #### Referências:
 
