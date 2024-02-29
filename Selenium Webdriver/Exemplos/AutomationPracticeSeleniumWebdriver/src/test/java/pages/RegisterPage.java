@@ -1,68 +1,101 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class RegisterPage {
+public class RegisterPage extends BasePage {
 
-    private WebDriver driver;
 
-    private By maleGender = By.id("uniform-id_gender1");
-    private By femaleGender = By.id("uniform-id_gender2");
-    private By firstName = By.id("customer_firstname");
-    private By lastName = By.id("customer_lastname");
-    private By email = By.id("email");
-    private By password = By.id("passwd");
-    private By dayOfBirth = By.id("days");
-    private By monthOfBirth = By.id("months");
-    private By yearOfBirth = By.id("years");
-    private By registerButton = By.id("submitAccount");
+    @FindBy(id = "uniform-id_gender1")
+    private WebElement maleGender;
+
+    @FindBy(id = "uniform-id_gender2")
+    private WebElement femaleGender;
+
+    @FindBy(id = "customer_firstname")
+    private WebElement firstName;
+
+    @FindBy(id = "customer_lastname")
+    private WebElement lastName;
+
+    @FindBy(id = "email")
+    private WebElement email;
+
+    @FindBy(id = "passwd")
+    private WebElement password;
+
+    @FindBy(id = "days")
+    private WebElement dayOfBirth;
+
+    @FindBy(id = "months")
+    private WebElement monthOfBirth;
+
+    @FindBy(id = "years")
+    private WebElement yearOfBirth;
+
+    @FindBy(id = "submitAccount")
+    private WebElement registerButton;
+
 
     public RegisterPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+        PageFactory.initElements(driver, this);
     }
 
-    public void selectMaleGender() {
-        driver.findElement(maleGender).click();
+    public RegisterPage selectMaleGender() {
+        maleGender.click();
+        return this;
     }
 
-    public void selectFemaleGender() {
-        driver.findElement(femaleGender).click();
+    public RegisterPage selectFemaleGender() {
+        femaleGender.click();
+        return this;
     }
 
-    public void setFirstName(String firstNameText) {
-        driver.findElement(firstName).sendKeys(firstNameText);
+    public RegisterPage setFirstName(String firstNameText) {
+        firstName.sendKeys(firstNameText);
+        return this;
     }
 
-    public void setLastName(String lastNameText) {
-        driver.findElement(lastName).sendKeys(lastNameText);
+
+    public RegisterPage setLastName(String lastNameText) {
+        lastName.sendKeys(lastNameText);
+        return this;
     }
 
-    public void setEmail(String emailText) {
-        driver.findElement(email).sendKeys(emailText);
+    public RegisterPage setEmail(String emailText) {
+        email.sendKeys(emailText);
+        return this;
     }
 
-    public void setPassword(String passwordText) {
-        driver.findElement(password).sendKeys(passwordText);
+    public RegisterPage setPassword(String passwordText) {
+        password.sendKeys(passwordText);
+        return this;
     }
 
-    public void selectDayOfBirth(String day) {
-        Select dayDropdown = new Select(driver.findElement(dayOfBirth));
+    public RegisterPage selectDayOfBirth(String day) {
+        Select dayDropdown = new Select(dayOfBirth);
         dayDropdown.selectByValue(day);
+        return this;
     }
 
-    public void selectMonthOfBirth(String month) {
-        Select monthDropdown = new Select(driver.findElement(monthOfBirth));
+    public RegisterPage selectMonthOfBirth(String month) {
+        Select monthDropdown = new Select(monthOfBirth);
         monthDropdown.selectByValue(month);
+        return this;
     }
 
-    public void selectYearOfBirth(String year) {
-        Select yearDropdown = new Select(driver.findElement(yearOfBirth));
+    public RegisterPage selectYearOfBirth(String year) {
+        Select yearDropdown = new Select(yearOfBirth);
         yearDropdown.selectByValue(year);
+        return this;
     }
 
-    public void clickRegisterButton() {
-        driver.findElement(registerButton).click();
+    public MyAccountPage clickRegisterButton() {
+        registerButton.click();
+        return new MyAccountPage(driver);
     }
 }

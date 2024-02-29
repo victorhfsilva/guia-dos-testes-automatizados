@@ -1,39 +1,82 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class AutheticationPage {
+public class AutheticationPage extends BasePage{
 
-    private WebDriver driver;
+    @FindBy(id = "email_create")
+    private WebElement registerEmail;
 
-    private By registerEmail = By.id("email_create");
-    private By registerButton = By.id("SubmitCreate");
-    private By loginEmail = By.id("email");
-    private By loginPassword = By.id("passwd");
-    private By loginButton = By.id("SubmitLogin");
+    @FindBy(id = "SubmitCreate")
+    private WebElement registerButton;
+
+    @FindBy(id = "email")
+    private WebElement loginEmail;
+
+    @FindBy(id = "passwd")
+    private WebElement loginPassword;
+
+    @FindBy(id = "SubmitLogin")
+    private WebElement loginButton;
 
     public AutheticationPage(WebDriver driver){
-        this.driver = driver;
+       super(driver);
+        PageFactory.initElements(driver, this);
     }
 
-    public void setRegisterEmail(String email){
-        driver.findElement(registerEmail).sendKeys(email);
+    public AutheticationPage navigateTo() {
+        this.driver.get("http://www.automationpractice.pl/index.php?controller=authentication&back=my-account");
+        return this;
     }
 
-    public void clickRegister(){
-        driver.findElement(registerButton).click();
+    public AutheticationPage setRegisterEmail(String email){
+       registerEmail.sendKeys(email);
+       return this;
     }
 
-    public void setLoginEmail(String email) {
-        driver.findElement(loginEmail).sendKeys(email);
+    public RegisterPage clickRegister(){
+        registerButton.click();
+        return new RegisterPage(driver);
     }
 
-    public void setLoginPassword(String password) {
-        driver.findElement(loginPassword).sendKeys(password);
+    public AutheticationPage setLoginEmail(String email) {
+        loginEmail.sendKeys(email);
+        return this;
+    }
+
+    public AutheticationPage setLoginPassword(String password) {
+        loginPassword.sendKeys(password);
+        return this;
     }
 
     public void clickLogin(){
-        driver.findElement(loginButton).click();
+        loginButton.click();
     }
+
+
+    public WebElement getRegisterEmail() {
+        return this.registerEmail;
+    }
+
+    public WebElement getRegisterButton() {
+        return this.registerButton;
+    }
+
+    public WebElement getLoginEmail() {
+        return this.loginEmail;
+    }
+
+
+    public WebElement getLoginPassword() {
+        return this.loginPassword;
+    }
+
+
+    public WebElement getLoginButton() {
+        return this.loginButton;
+    }
+
 }

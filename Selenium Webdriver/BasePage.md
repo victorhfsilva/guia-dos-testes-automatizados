@@ -44,7 +44,7 @@ public void refreshPage() {
 public class BasePage {
     // código anterior
 
-    public void waitForElementToBeClickable(By locator, int timeout) {
+    public void waitForElementToBeClickable(By locator, Duration timeout) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }

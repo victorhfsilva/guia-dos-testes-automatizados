@@ -1,34 +1,38 @@
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.AutheticationPage;
+import pages.HomePage;
+import pages.MyAccountPage;
 import pages.RegisterPage;
-
 import java.time.Duration;
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RegisteringTest {
 
-    private static final WebDriver driver = new ChromeDriver();
-    private final AutheticationPage autheticationPage = new AutheticationPage(driver);
-    final RegisterPage registerPage = new RegisterPage(driver);
-    Faker faker = new Faker();
+    private final static  WebDriver driver = new ChromeDriver();
+    private final static HomePage homePage = new HomePage(driver);
+    private final static AutheticationPage autheticationPage = new AutheticationPage(driver);
+    private final static RegisterPage registerPage = new RegisterPage(driver);
+    private final static MyAccountPage myAccountPage = new MyAccountPage(driver);
+
+    private final Faker faker = new Faker();
 
     @BeforeAll
     public static void setup() {
-        driver.get("http://www.automationpractice.pl/index.php");
-
-        driver.manage().window().maximize();
-
-        WebElement signIn = driver.findElement(By.partialLinkText("Sign in"));
-        signIn.click();
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10L));
-        wait.until(ExpectedConditions.titleContains("Login"));
+       homePage.navigateTo()
+                .clickSignInButton()
+                .maximize()
+                .waitForTitleContains("Login", Duration.ofSeconds(10));
     }
 
     @AfterAll
@@ -38,35 +42,31 @@ public class RegisteringTest {
 
     @Test
     @Order(1)
-    public void registerTest(){
-        autheticationPage.setRegisterEmail(faker.internet().safeEmailAddress());
-        autheticationPage.clickRegister();
+    void registerTest(){
 
         String registerUrl = "http://www.automationpractice.pl/index.php?controller=authentication&back=my-account#account-creation";
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10L));
-        wait.until(ExpectedConditions.urlToBe(registerUrl));
+        autheticationPage.setRegisterEmail(faker.internet().safeEmailAddress())
+                            .clickRegister()
+                            .waitUrlToBe(registerUrl, Duration.ofSeconds(10));
 
         Assertions.assertEquals(registerUrl, driver.getCurrentUrl());
 
-        registerPage.selectMaleGender();
-        registerPage.setFirstName(faker.name().firstName());
-        registerPage.setLastName(faker.name().lastName());
-        registerPage.setPassword("letmein123");
-        registerPage.selectDayOfBirth("1");
-        registerPage.selectMonthOfBirth("1");
-        registerPage.selectYearOfBirth("2000");
-
-        registerPage.clickRegisterButton();
-
         String accountUrl = "http://www.automationpractice.pl/index.php?controller=my-account";
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10L));
-        wait.until(ExpectedConditions.urlToBe(accountUrl));
+        registerPage.selectMaleGender()
+                    .setFirstName(faker.name().firstName())
+                    .setLastName(faker.name().lastName())
+                    .setPassword("letmein123")
+                    .selectDayOfBirth("1")
+                    .selectMonthOfBirth("1")
+                    .selectYearOfBirth("2000")
+                    .clickRegisterButton()
+                    .waitUrlToBe(accountUrl, Duration.ofSeconds(10));
 
         Assertions.assertEquals(accountUrl, driver.getCurrentUrl());
 
-        WebElement welcome = driver.findElement(By.className("info-account"));
+        WebElement welcome = myAccountPage.getWelcomeInfo();
         Assertions.assertTrue(welcome.isDisplayed());
     }
 
