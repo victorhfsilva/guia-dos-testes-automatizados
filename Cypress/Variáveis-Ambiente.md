@@ -1,34 +1,57 @@
-**Variáveis de Ambiente no Cypress**
+# **Variáveis de Ambiente no Cypress**
 
-No Cypress, você pode usar variáveis de ambiente para configurar e parametrizar seus testes. Isso é útil para lidar com diferentes ambientes, como desenvolvimento, teste e produção. Aqui está um guia rápido sobre como usar variáveis de ambiente no Cypress:
+No Cypress, você pode usar variáveis de ambiente para configurar e parametrizar seus testes.
 
-1. **Configuração de Variáveis de Ambiente:**
+### **Configuração de Variáveis de Ambiente:**
 
-   Defina suas variáveis de ambiente no arquivo `cypress.json`:
+   Defina suas variáveis de ambiente no arquivo `cypress.config.json`:
 
-   ```json
-   // cypress.json
-
-   {
-     "env": {
-       "API_URL": "https://api.exemplo.com",
-       "USERNAME": "seu-usuario",
-       "PASSWORD": "sua-senha"
-     }
-   }
+   ```javascript
+  const { defineConfig } = require("cypress");
+  
+  module.exports = defineConfig({
+      e2e: {
+        setupNodeEvents(on, config) {
+          // implement node event listeners here
+      },
+      env: {
+        login_url: '/login',
+        products_url: '/products',
+      }
+    })
    ```
 
-2. **Acessando Variáveis de Ambiente nos Testes:**
+  Também é possível definir variáveis de ambiente no arquivo `cypress.env.json`:
+
+  ```json
+  {
+    "host": "veronica.dev.local",
+    "api_server": "http://localhost:8888/api/v1/"
+  }
+  ```
+
+  Além disso todas as variáveis de ambiente com o prefixo `CYPRESS_` do seu sistema serão interpretados pelo Cypress com suas próprias variáveis de ambiente.
+
+### **Configuração de Variáveis de Ambiente via Linha de Comando:**
+
+   Configure variáveis de ambiente ao executar seus testes via linha de comando.
+
+   ```bash
+   npx cypress run --env API_URL=https://api.teste.com,USERNAME=teste,PASSWORD=12345
+   ```
+
+
+### **Acessando Variáveis de Ambiente nos Testes:**
 
    Você pode acessar variáveis de ambiente usando `Cypress.env()`.
 
    ```javascript
-   const apiUrl = Cypress.env('API_URL');
-   const username = Cypress.env('USERNAME');
-   const password = Cypress.env('PASSWORD');
+   const env = Cypress.env() // {login_url: '/login', products_url: '/products'}
+   const loginUrl = Cypress.env('login_url'); // '/login'
+   const products_url = Cypress.env('products_url') // '/products'
    ```
 
-3. **Usando Variáveis de Ambiente em Requisições de API:**
+### **Usando Variáveis de Ambiente em Requisições de API:**
 
    Passe variáveis de ambiente diretamente para suas requisições de API.
 
@@ -43,53 +66,3 @@ No Cypress, você pode usar variáveis de ambiente para configurar e parametriza
    });
    ```
 
-4. **Alterando Variáveis de Ambiente via Linha de Comando:**
-
-   Substitua variáveis de ambiente ao executar seus testes via linha de comando.
-
-   ```bash
-   npx cypress run --env API_URL=https://api.teste.com,USERNAME=teste,PASSWORD=12345
-   ```
-
-5. **Variáveis de Ambiente para Diferentes Ambientes:**
-
-   Configure diferentes valores para diferentes ambientes.
-
-   ```json
-   // cypress.json
-
-   {
-     "env": {
-       "development": {
-         "API_URL": "https://api.dev.com",
-         "USERNAME": "dev-usuario",
-         "PASSWORD": "dev-senha"
-       },
-       "production": {
-         "API_URL": "https://api.prod.com",
-         "USERNAME": "prod-usuario",
-         "PASSWORD": "prod-senha"
-       }
-     }
-   }
-   ```
-
-   ```javascript
-   const apiUrl = Cypress.env('API_URL'); // Valor dependendo do ambiente configurado
-   ```
-
-6. **Usando Variáveis de Ambiente em Plugins e Comandos Personalizados:**
-
-   Variáveis de ambiente também podem ser acessadas em plugins e comandos personalizados.
-
-   ```javascript
-   // plugins/index.js
-
-   module.exports = (on, config) => {
-     const apiUrl = process.env.API_URL || config.env.API_URL;
-     // Restante do código aqui
-     return config;
-   };
-   ```
-
-As variáveis de ambiente no Cypress proporcionam flexibilidade e facilitam a criação de testes que podem ser executados em diferentes ambientes sem a necessidade de alterar o código do teste.

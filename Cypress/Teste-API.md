@@ -1,8 +1,8 @@
 # **Testes de APIs com Cypress**
 
-Testar APIs é crucial para garantir que sua aplicação interaja corretamente com os serviços web. O Cypress oferece recursos poderosos para testes de APIs. Aqui está um guia rápido:
+Testar APIs é crucial para garantir que sua aplicação interaja corretamente com os serviços web. O Cypress oferece recursos poderosos para testes de APIs. 
 
-1. **Requisições HTTP Básicas:**
+### **Requisições HTTP Básicas:**
 
    Use o comando `cy.request` para fazer requisições HTTP e realizar verificações.
 
@@ -13,7 +13,7 @@ Testar APIs é crucial para garantir que sua aplicação interaja corretamente c
    });
    ```
 
-2. **Trabalhando com Headers:**
+### **Trabalhando com Headers:**
 
    Adicione headers às suas requisições para testar diferentes cenários.
 
@@ -31,7 +31,7 @@ Testar APIs é crucial para garantir que sua aplicação interaja corretamente c
    });
    ```
 
-3. **Enviando Dados no Corpo da Requisição:**
+### **Enviando Dados no Corpo da Requisição:**
 
    Teste a manipulação correta de dados enviados no corpo da requisição.
 
@@ -43,7 +43,7 @@ Testar APIs é crucial para garantir que sua aplicação interaja corretamente c
    });
    ```
 
-4. **Testando Respostas JSON:**
+### **Testando Respostas JSON:**
 
    Verifique se a API retorna respostas JSON e valide o conteúdo.
 
@@ -51,7 +51,7 @@ Testar APIs é crucial para garantir que sua aplicação interaja corretamente c
    cy.request('/api/endpoint').its('headers').its('content-type').should('include', 'application/json');
    ```
 
-5. **Testando Códigos de Resposta:**
+### **Testando Códigos de Resposta:**
 
    Garanta que a API retorne códigos de resposta apropriados.
 
@@ -59,7 +59,7 @@ Testar APIs é crucial para garantir que sua aplicação interaja corretamente c
    cy.request('/api/endpoint').its('status').should('eq', 200);
    ```
 
-6. **Testando Tempo de Resposta:**
+### **Testando Tempo de Resposta:**
 
    Avalie o tempo de resposta da API para garantir desempenho.
 
@@ -69,7 +69,7 @@ Testar APIs é crucial para garantir que sua aplicação interaja corretamente c
    });
    ```
 
-7. **Testando Autenticação:**
+### **Testando Autenticação:**
 
    Teste cenários de autenticação, como tokens JWT.
 
@@ -83,7 +83,7 @@ Testar APIs é crucial para garantir que sua aplicação interaja corretamente c
    });
    ```
 
-8. **Testando Erros e Exceções:**
+### **Testando Erros e Exceções:**
 
    Garanta que a API lide corretamente com erros.
 
@@ -98,9 +98,9 @@ Testar APIs é crucial para garantir que sua aplicação interaja corretamente c
    });
    ```
 
-9. **Utilizando Fixtures:**
+### **Utilizando Fixtures:**
 
-   Armazene dados de requisição e resposta em arquivos fixtures.
+   Utilize dados armazenados em arquivos fixtures para realizar a requisição.
 
    ```javascript
    cy.fixture('example').then((example) => {
@@ -111,14 +111,3 @@ Testar APIs é crucial para garantir que sua aplicação interaja corretamente c
      });
    });
    ```
-
-10. **Testando com Múltiplos Ambientes:**
-
-    Configure variáveis de ambiente para testar em diferentes ambientes.
-
-    ```javascript
-    const baseUrl = Cypress.env('apiUrl');
-    cy.request(`${baseUrl}/api/endpoint`);
-    ```
-
-Certifique-se de entender a estrutura da sua API para criar testes significativos e abrangentes. Considere testar diferentes cenários, como autenticação, respostas de erro e manipulação de dados.

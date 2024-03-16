@@ -1,30 +1,28 @@
-**Comandos Personalizados no Cypress**
+# **Comandos Personalizados no Cypress**
 
-No Cypress, você pode criar comandos personalizados para encapsular funcionalidades específicas e tornar seus testes mais legíveis e reutilizáveis. Aqui está um guia rápido sobre como criar e usar comandos personalizados:
+No Cypress, você pode criar comandos personalizados para encapsular funcionalidades específicas e tornar seus testes mais legíveis e reutilizáveis. 
 
-1. **Criar um Comando Customizado:**
+### **Criar um Comando Customizado:**
 
    Crie comandos personalizados no arquivo `commands.js` no diretório `cypress/support`.
 
    ```javascript
-   // cypress/support/commands.js
-
    Cypress.Commands.add('login', (username, password) => {
      // Lógica de login aqui
    });
    ```
 
-2. **Usar um Comando Personalizado nos Testes:**
+### **Usando um Comando Personalizado nos Testes:**
 
    Após a criação do comando, você pode usá-lo nos seus testes.
 
    ```javascript
-   // cypress/integration/seu-teste-spec.js
+   // cypress/e2e/seu-teste-spec.cy.js
 
    cy.login('seu-usuario', 'sua-senha');
    ```
 
-3. **Comando com Parâmetros Opcionais:**
+### **Comando com Parâmetros Opcionais:**
 
    Você pode tornar os parâmetros opcionais, fornecendo valores padrão.
 
@@ -36,7 +34,7 @@ No Cypress, você pode criar comandos personalizados para encapsular funcionalid
    });
    ```
 
-4. **Retornar Valores do Comando:**
+### **Retornar Valores do Comando:**
 
    Se desejar que seu comando retorne um valor, use `then`.
 
@@ -50,56 +48,10 @@ No Cypress, você pode criar comandos personalizados para encapsular funcionalid
    ```
 
    ```javascript
-   // cypress/integration/seu-teste-spec.js
+   // cypress/e2e/seu-teste-spec.cy.js
 
    cy.getToken().then((token) => {
      // Faça algo com o token
-   });
-   ```
-
-5. **Encapsular Lógica Complexa:**
-
-   Use comandos personalizados para encapsular lógica complexa.
-
-   ```javascript
-   // cypress/support/commands.js
-
-   Cypress.Commands.add('fazerAlgoComplexo', () => {
-     // Lógica complexa aqui
-   });
-   ```
-
-   ```javascript
-   // cypress/integration/seu-teste-spec.js
-
-   cy.fazerAlgoComplexo();
-   ```
-
-6. **Usar em Diferentes Contextos:**
-
-   Comandos personalizados podem ser usados em vários contextos, incluindo `before`, `beforeEach`, etc.
-
-   ```javascript
-   // cypress/support/commands.js
-
-   Cypress.Commands.add('login', () => {
-     // Lógica de login aqui
-   });
-
-   Cypress.Commands.add('realizarAlgo', () => {
-     // Lógica para fazer algo após o login
-   });
-   ```
-
-   ```javascript
-   // cypress/integration/seu-teste-spec.js
-
-   before(() => {
-     cy.login();
-   });
-
-   it('Deve realizar algo após o login', () => {
-     cy.realizarAlgo();
    });
    ```
 

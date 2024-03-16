@@ -1,22 +1,21 @@
-**Cypress Fixtures**
+# **Fixtures**
 
-**1. Criando Fixtures:**
+### **Criando Fixtures:**
    - As fixtures no Cypress são arquivos JSON que contêm dados de teste.
    - Crie um arquivo JSON dentro do diretório `cypress/fixtures`.
 
-```plaintext
+```
 cypress
 │
 └── fixtures
     └── example.json
 ```
 
-**2. Estrutura de uma Fixture:**
+### **Estrutura de uma Fixture:**
    - Uma fixture é um arquivo JSON simples.
    - Exemplo:
 
 ```json
-// example.json
 {
   "user": {
     "username": "testuser",
@@ -37,11 +36,10 @@ cypress
 }
 ```
 
-**3. Utilizando Fixtures nos Testes:**
+### **Utilizando Fixtures nos Testes:**
    - Use o método `cy.fixture()` para carregar dados de uma fixture.
 
 ```javascript
-// Exemplo de uso em um teste
 cy.fixture('example.json').then((data) => {
   // 'data' contém o conteúdo da fixture
   cy.log(data.user.username); // Saída: testuser
@@ -49,7 +47,8 @@ cy.fixture('example.json').then((data) => {
 });
 ```
 
-**4. Usando Fixtures para Dados de Teste:**
+### **Usando Fixtures para Dados de Teste:**
+
    - Carregue dados de fixtures para simular cenários de teste.
 
 ```javascript
@@ -61,27 +60,30 @@ cy.fixture('example.json').then((data) => {
 });
 ```
 
-**5. Fixtures para Testes de API:**
+### **Fixtures para Testes de API:**
    - Use fixtures para definir payloads ou dados de resposta em testes de API.
 
 ```javascript
 // Exemplo: Definindo um payload em uma fixture para um teste de API
 cy.fixture('apiPayload.json').then((payload) => {
   cy.request('POST', '/api/endpoint', payload).then((response) => {
-    // Assertions no response
+    // Assertions do response
   });
 });
 ```
 
-**6. Fixtures Dinâmicas:**
+### **Fixtures Dinâmicas:**
    - Use a opção `onBeforeLoad` para carregar dinamicamente uma fixture.
 
 ```javascript
 // Exemplo: Carregando dinamicamente uma fixture com base na hora atual
-cy.fixture('example.json', 'utf-8', { onBeforeLoad: (content) => ({ ...content, timestamp: Date.now() }) });
+cy.fixture('example.json', 'utf-8', { onBeforeLoad: (content) => ({ 
+  ...content, timestamp: Date.now() 
+  }) 
+});
 ```
 
-**7. Múltiplas Fixtures:**
+### **Múltiplas Fixtures:**
    - Carregue várias fixtures em um único teste.
 
 ```javascript

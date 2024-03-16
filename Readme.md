@@ -63,6 +63,29 @@ Bem-vindo ao Guia dos Testes Automatizados! Este repositório é o ponto de part
 
 - [Selenium Webdriver Documentation](https://www.selenium.dev/documentation/webdriver/getting_started/)
 
+### 5. Cypress:
+
+- [Configuração](./Cypress/Configuração.md)
+- [Navegação](./Cypress/Navegação.md)
+- [Seletores](./Cypress/Seletores.md)
+- [Ações](./Cypress/Ações.md)
+- [Asserções](./Cypress/Asserções.md)
+- [Esperas](./Cypress/Esperas.md)
+- [Requisições de Rede](./Cypress/Requisições%20de%20Rede.md)
+- [Comandos Utilitários](./Cypress/Comandos%20Utilitários.md)
+- [Comandos Personalizados](./Cypress/Comandos-Personalizados.md)
+- [Ciclo de Vida](./Cypress/Ciclo%20de%20Vida.md)
+- [Fixtures](./Cypress/Fixture.md)
+- [Estrutura do Projeto](./Cypress/Estrutura.md)
+- [Testes de APIs](./Cypress/Teste-API.md)
+- [Variáveis de Ambiente](./Cypress/Variáveis-Ambiente.md)
+
+
+### 6. Extras:
+
+- [Automation Practice](http://www.automationpractice.pl/index.php)
+- [Automation Exercise](https://automationexercise.com/)
+
 ## 🤝 Contribua!
 
 Este guia está em constante crescimento, e sua contribuição é mais do que bem-vinda! Se você tem dicas, exemplos adicionais ou quer corrigir algo, sinta-se à vontade para abrir uma issue ou enviar um pull request. Vamos tornar este guia ainda mais incrível!
