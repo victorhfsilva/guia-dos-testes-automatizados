@@ -65,3 +65,20 @@ describe('template spec', () => {
   })
 })
 ```
+
+### **Definindo a URL Base:**
+
+Para definir a url base no arquivo `cypress.config.js` basta adicionar:
+
+```javascript
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  baseUrl: 'https://example.cypress.io/';
+  e2e: {
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
+  },
+});
+```

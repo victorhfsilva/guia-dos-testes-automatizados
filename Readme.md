@@ -68,9 +68,12 @@ Bem-vindo ao Guia dos Testes Automatizados! Este repositório é o ponto de part
 - [Configuração](./Cypress/Configuração.md)
 - [Navegação](./Cypress/Navegação.md)
 - [Seletores](./Cypress/Seletores.md)
+- [CSS Selectors](./Cypress/CSS%20Selectors.md)
 - [Ações](./Cypress/Ações.md)
 - [Asserções](./Cypress/Asserções.md)
+- [Asserções Explícitas](./Cypress/Asserções%20Explícitas.md)
 - [Esperas](./Cypress/Esperas.md)
+- [Aliases](./Cypress/Aliases.md)
 - [Requisições de Rede](./Cypress/Requisições%20de%20Rede.md)
 - [Comandos Utilitários](./Cypress/Comandos%20Utilitários.md)
 - [Comandos Personalizados](./Cypress/Comandos-Personalizados.md)
@@ -79,7 +82,7 @@ Bem-vindo ao Guia dos Testes Automatizados! Este repositório é o ponto de part
 - [Estrutura do Projeto](./Cypress/Estrutura.md)
 - [Testes de APIs](./Cypress/Teste-API.md)
 - [Variáveis de Ambiente](./Cypress/Variáveis-Ambiente.md)
-
+- [Cypress CLI](./Cypress/Cypress%20CLI.md)
 
 ### 6. Extras:
 
