@@ -68,6 +68,15 @@ O Cypress permite que você execute seus testes em diferentes navegadores usando
 cypress run --browser chrome
 ```
 
+### Executar com diferentes configurações
+
+É possível executar o cypres em diferentes ambientes definidos por diferentes arquivos de configuração:
+
+```bash
+cypress open --config-file cypress_prod.config.js
+cypress run --config-file cypress_dev.config.js
+```
+
 ## Conclusão
 
 O Cypress CLI oferece uma ampla gama de recursos e opções para configurar e executar seus testes Cypress de maneira eficiente. Com os comandos e opções adequados, você pode automatizar seus testes de forma eficaz e garantir a qualidade do seu aplicativo. Experimente os diferentes comandos e personalize-os de acordo com suas necessidades específicas de teste.

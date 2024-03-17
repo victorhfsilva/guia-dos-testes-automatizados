@@ -32,27 +32,6 @@
     cy.clearCookies()
     ```
 
-### **Manipular o LocalStorage**:
-
-- **cy.setLocalStorage()**: Define valores no `localStorage` do navegador.
-  ```javascript
-  cy.setLocalStorage('user', JSON.stringify({ id: 1, name: 'John' })) // Define um item 'user' no localStorage com o valor de um objeto convertido para JSON
-  ```
-
-- **cy.getLocalStorage()**: Obtém valores do `localStorage` do navegador.
-  ```javascript
-  cy.getLocalStorage('user').then((user) => {
-    // 'user' contém o valor do item 'user' no localStorage
-    const userData = JSON.parse(user)
-    // Faça as verificações necessárias com os dados obtidos
-  })
-  ```
-
-- **cy.clearLocalStorage()**: Limpa todos os itens do `localStorage`.
-  ```javascript
-  cy.clearLocalStorage() // Limpa todos os itens do localStorage
-  ```
-  
 ### **Capturar Screenshots e Vídeos**:
 
 - **cy.screenshot()**: Captura um screenshot da página no momento da execução do teste.

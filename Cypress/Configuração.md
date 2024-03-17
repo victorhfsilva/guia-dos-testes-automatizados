@@ -74,8 +74,8 @@ Para definir a url base no arquivo `cypress.config.js` basta adicionar:
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  baseUrl: 'https://example.cypress.io/';
   e2e: {
+    baseUrl: 'https://example.cypress.io/',
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
